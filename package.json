@@ -1,0 +1,59 @@
+{
+  "name": "taro-use-connect-printer",
+  "version": "1.0.0",
+  "description": "taro 微信小程序连接打印机 hook",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "dist/index.d.ts",
+  "unpkg": "dist/taro-hooks.js",
+  "scripts": {
+    "build": "yarn father-build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YellowPure/taro-use-connect-printer.git"
+  },
+  "keywords": [
+    "taro",
+    "tarojs",
+    "react",
+    "wechat",
+    "miniprogram",
+    "typescript",
+    "hooks"
+  ],
+  "author": "h.love.pure@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YellowPure/taro-use-connect-printer/issues"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "package.json",
+    "README.md"
+  ],
+  "homepage": "https://github.com/YellowPure/taro-use-connect-printer#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.16.0",
+    "@tarojs/taro": ">= 3.x",
+    "querystring": "^0.2.1",
+    "ramda": "^0.27.1",
+    "react": ">=16.9"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/ramda": "^0.27.41",
+    "@types/react": "^17.0.34",
+    "father-build": "^1.20.3"
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "@tarojs/taro": ">= 3.x",
+    "react": ">=16.9"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
