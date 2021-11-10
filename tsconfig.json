@@ -10,12 +10,11 @@
     "baseUrl": "./",
     "allowJs": true,
     "strict": true,
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["./node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "declaration": false,
+    "declaration": true,
     "strictNullChecks": true,
-    "rootDir": "src"
   },
   "exclude": [
     "node_modules",
@@ -27,5 +26,6 @@
     "test",
     "docs",
     "tests"
-  ]
+  ],
+  "compileOnSave": false
 }

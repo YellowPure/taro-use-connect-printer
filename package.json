@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "dist/index.d.ts",
-  "unpkg": "dist/taro-hooks.js",
+  "unpkg": "dist/taro-use-connect-printer.js",
   "scripts": {
     "build": "yarn father-build"
   },
