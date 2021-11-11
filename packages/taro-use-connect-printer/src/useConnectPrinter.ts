@@ -4,7 +4,7 @@
  * @date 2021-10-18 15:59:55
  */
 
-import Taro, { onBluetoothDeviceFound } from '@tarojs/taro';
+import Taro, { General, onBluetoothDeviceFound } from '@tarojs/taro';
 import { useEffect, useRef, useState } from 'react';
 import { uniqBy } from 'ramda';
 import { useLocalStorage } from './useLocalStorage';
@@ -16,7 +16,6 @@ const __DEV__ = process.env.NODE_ENV === 'development';
  * 已连接列表的本地储存
  */
 const PRINT_LIST = 'taro_printer_list';
-
 // ArrayBuffer转16进度字符串示例
 const ab2hex = (buffer: ArrayBuffer) => {
   const hexArr = Array.prototype.map.call(new Uint8Array(buffer), function (bit: { toString: (arg0: number) => any }) {
@@ -26,7 +25,10 @@ const ab2hex = (buffer: ArrayBuffer) => {
 };
 
 export type IConnectDevice = (device: onBluetoothDeviceFound.CallbackResultBlueToothDevice) => void;
-
+export type Error = {
+  errCode: number;
+  errMsg: string;
+};
 export interface UseConnectPrinter {
   /**
    * 特征码
@@ -58,11 +60,23 @@ export interface UseConnectPrinter {
   /**
    * 开始搜索蓝牙低功耗设备
    */
-  startBluetooth: () => void;
+  startBluetooth: () => Promise<
+    | {
+        openBluetoothAdapterResult: General.CallbackResult;
+        getBluetoothAdapterStateResult: Taro.getBluetoothAdapterState.SuccessCallbackResult;
+      }
+    | undefined
+  >;
   /**
    * 初始化蓝牙适配器
    */
-  initAdapter: () => void;
+  initAdapter: () => Promise<
+    | {
+        openBluetoothAdapterResult: General.CallbackResult;
+        getBluetoothAdapterStateResult: Taro.getBluetoothAdapterState.SuccessCallbackResult;
+      }
+    | undefined
+  >;
 }
 
 export function useConnectPrinter(): UseConnectPrinter {
@@ -152,13 +166,9 @@ export function useConnectPrinter(): UseConnectPrinter {
    * @returns
    */
   const startBluetooth = async () => {
-    try {
-      const res = await initAdapter();
-      startBluetoothDevicesDiscovery();
-      return res;
-    } catch (error) {
-      return error;
-    }
+    const res = await initAdapter();
+    startBluetoothDevicesDiscovery();
+    return res;
   };
 
   /**
@@ -170,24 +180,24 @@ export function useConnectPrinter(): UseConnectPrinter {
       showTip('当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。');
       return;
     }
-    try {
-      const res = await Taro.openBluetoothAdapter();
-      if (__DEV__) {
-        console.log('openBluetoothAdapter:', res);
-      }
-      const stateRes = await Taro.getBluetoothAdapterState();
-      const { discovering } = stateRes; // 蓝牙适配器是否可用
-      setSearching(discovering);
-      if (__DEV__) {
-        console.log('getBluetoothAdapterState:', stateRes);
-      }
-      return [res, stateRes];
-    } catch (error) {
-      if (__DEV__) {
-        console.log('initAdapter error', error);
-      }
-      return error;
+    // try {
+    const res = await Taro.openBluetoothAdapter();
+    if (__DEV__) {
+      console.log('openBluetoothAdapter:', res);
     }
+    const stateRes = await Taro.getBluetoothAdapterState();
+    const { discovering } = stateRes; // 蓝牙适配器是否可用
+    setSearching(discovering);
+    if (__DEV__) {
+      console.log('getBluetoothAdapterState:', stateRes);
+    }
+    return { openBluetoothAdapterResult: res, getBluetoothAdapterStateResult: stateRes };
+    // } catch (error) {
+    // if (__DEV__) {
+    //   console.log('initAdapter error', error);
+    // }
+    // return error as Error;
+    // }
   };
 
   /**

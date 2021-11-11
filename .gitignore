@@ -11,9 +11,9 @@
 /packages/taro-runtime/dist/*
 
 # production
-/lib
-/es
-/dist
+/packages/taro-use-connect-printer/lib
+/packages/taro-use-connect-printer/es
+/packages/taro-use-connect-printer/dist
 /coverage
 
 # misc
