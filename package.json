@@ -7,11 +7,11 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "dist/index.d.ts",
-  "unpkg": "dist/taro-use-connect-printer.js",
+  "unpkg": "dist/taro-use-connect-printer.min.js",
   "scripts": {
     "lerna": "lerna init",
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build",
+    "build": "lerna run build --scope=taro-use-connect-printer --stream",
     "lerna:publish": "lerna publish --no-private"
   },
   "repository": {
@@ -51,7 +51,8 @@
     "@types/node": "^16.11.7",
     "@types/ramda": "^0.27.41",
     "@types/react": "^17.0.34",
-    "father-build": "^1.20.3"
+    "father-build": "^1.20.3",
+    "lerna": "^3.22.1"
   },
   "sideEffects": false,
   "peerDependencies": {
@@ -60,5 +61,6 @@
   },
   "engines": {
     "node": ">=12.0.0"
-  }
+  },
+  "name": "taro-use-connect-printer"
 }

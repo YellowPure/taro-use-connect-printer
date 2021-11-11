@@ -4,5 +4,11 @@
   ],
   "version": "1.0.2",
   "npmClient": "yarn",
+  "ignoreChanges": [
+    "**/*.md",
+    "**/es/*",
+    "**/lib/*",
+    "**/dist/*"
+  ],
   "useWorkspaces": true
 }

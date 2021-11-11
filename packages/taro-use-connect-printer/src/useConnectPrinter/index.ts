@@ -7,8 +7,8 @@
 import Taro, { General, onBluetoothDeviceFound } from '@tarojs/taro';
 import { useEffect, useRef, useState } from 'react';
 import { uniqBy } from 'ramda';
-import { useLocalStorage } from './useLocalStorage';
-import { useMap } from './useMap';
+import { useLocalStorage } from '../useLocalStorage';
+import { useMap } from '../useMap';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 
