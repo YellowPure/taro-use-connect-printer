@@ -2,13 +2,17 @@
   "workspaces": [
     "packages/*"
   ],
+  "private": true,
   "version": "0.0.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "dist/index.d.ts",
   "unpkg": "dist/taro-use-connect-printer.js",
   "scripts": {
-    "build": "yarn father-build"
+    "lerna": "lerna init",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "lerna:publish": "lerna publish --no-private"
   },
   "repository": {
     "type": "git",

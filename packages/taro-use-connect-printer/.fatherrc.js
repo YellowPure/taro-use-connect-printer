@@ -2,12 +2,14 @@ export default {
   esm: {
     type: 'babel',
     mjs: true,
-    minify: true
+    minify: true,
+    file: 'taro-use-connect-printer'
   },
   cjs: {
     type: 'babel',
     lazy: true,
-    minify: true
+    minify: true,
+    file: 'taro-use-connect-printer'
   },
   umd: {
     globals: {
