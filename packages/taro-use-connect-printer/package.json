@@ -1,7 +1,7 @@
 {
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "taro-use-connect-printer",
+  "version": "1.0.0",
+  "description": "taro 微信小程序连接打印机 hook",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "dist/index.d.ts",
