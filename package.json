@@ -39,6 +39,9 @@
     "package.json",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/YellowPure/taro-use-connect-printer#readme",
   "dependencies": {
     "@babel/runtime": "^7.16.0",
@@ -62,5 +65,5 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "name": "taro-use-connect-printer"
+  "name": "root"
 }

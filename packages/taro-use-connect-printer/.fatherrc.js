@@ -1,22 +1,21 @@
 export default {
   esm: {
     type: 'babel',
+    file: 'taro-use-connect-printer',
     mjs: true,
-    minify: true,
-    file: 'taro-use-connect-printer'
+    minify: true
   },
   cjs: {
     type: 'babel',
+    file: 'taro-use-connect-printer',
     lazy: true,
-    minify: true,
-    file: 'taro-use-connect-printer'
+    minify: true
   },
   umd: {
     globals: {
       react: 'React',
       ramda: 'ramda',
-      '@tarojs/taro': 'Taro',
-      querystring: 'querystring'
+      '@tarojs/taro': 'Taro'
     },
     name: 'taro-use-connect-printer',
     file: 'taro-use-connect-printer',
