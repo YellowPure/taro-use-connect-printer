@@ -1,6 +1,6 @@
 {
   "name": "taro-use-connect-printer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "taro 微信小程序连接打印机 hook",
   "main": "lib/index.js",
   "module": "es/index.js",
